@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section>
+				<div class="container">
+					<div class="row align-items-center justify-content-between">
+						<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+						<div class="lmp_caption">
+								<h2 class="mb-3 font-2">{{ about_us.title }}</h2>
+								<p>{{ about_us.description }}</p>
+                                {% for feature in about_us.features.all %}
+								<div class="mb-3 ml-4 mr-lg-0 ml-lg-4">
+									<div class="d-flex align-items-center">
+									  <div class="rounded-circle bg-light-success theme-cl p-2 small d-flex align-items-center justify-content-center">
+										<i class="fas fa-check"></i>
+									  </div>
+									  <h6 class="mb-0 mr-3">{{ feature.name }}</h6>
+									</div>
+								</div>
+                                {% endfor %}
+                        {% if user.is_authenticated %}
+								<div class="text-right mt-4"><a href="#" class="btn btn-md text-light theme-bg">لیست آموزش ها</a></div>
+                        {% else %}
+                               <div class="text-right mt-4"><a href="{% url 'register' %}" class="btn btn-md text-light theme-bg">شروع ثبت نام</a></div>
+                        {% endif %}
+							</div>
+						</div>
+
+						<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+							<div class="lmp_thumb">
+								<img src="{{ about_us.image.url }}" class="img-fluid" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+{% endblock %}

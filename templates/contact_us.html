@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <br>
+    <br>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <h4>با ما در ارتباط باشید</h4>
+                        <span>پیام بفرستید تا حد امکان پاسخگو خواهیم بود... </span>
+                    </div>
+
+{% if messages %}
+    {% for message in messages %}
+        <!-- Backdrop (پس زمینه تار) -->
+        <div class="backdrop"></div>
+
+        <!-- کادر اعلان -->
+        <div class="col-lg-6 col-md-10 success-message">
+            <div class="text-center succ_wrap">
+                <div class="succ_121 mb-3">
+                    <i class="fas fa-thumbs-up"></i>
+                </div>
+                <div>
+                    <h4 class="font-2">پیغام شما با موفقیت به پشتیبانی ارسال شد</h4>
+                    <p>{{ message }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'home' %}" class="btn theme-bg text-white">بازگشت به داشبورد</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+                    <form method="post">
+                        <div class="row">
+
+                            {% csrf_token %}
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="full_name">نام و نام خانوادگی</label>
+                                    <input type="text" id="full_name" name="full_name" class="form-control"
+                                           placeholder="نام" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="email">پست الکترونیکی</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="ایمیل"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="phone">شماره تماس ( اختیاری ) </label>
+                                    <input type="text" id="phone" name="phone" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="message">متن درخواست</label>
+                                    <input id="message" name="message" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <button class="btn theme-bg text-white btn-md" type="submit">ارسال پیام</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                    <div class="lmp_caption pr-lg-5">
+                        <ol class="list-unstyled p-0">
+                            <li class="d-flex align-items-start my-3 my-md-4">
+                                <div class="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center theme-bg-light">
+                                    <div class="position-absolute theme-cl h5 mb-0"><i class="fas fa-home"></i></div>
+                                </div>
+                                <div class="mr-3 mr-md-4">
+                                    <h4>آدرس ما</h4>
+                                    <p>
+                                        ایران، تهران،<br>میدان آزادی، جنب مترو شادمان<br>مجتمع صدف پلاک 8
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start my-3 my-md-4">
+                                <div class="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center theme-bg-light">
+                                    <div class="position-absolute theme-cl h5 mb-0"><i class="fas fa-at"></i></div>
+                                </div>
+                                <div class="mr-3 mr-md-4">
+                                    <h4>پست الکترونیکی</h4>
+                                    <p>
+                                        support@example.com<br>example@gmail.com
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start my-3 my-md-4">
+                                <div class="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center theme-bg-light">
+                                    <div class="position-absolute theme-cl h5 mb-0"><i
+                                            class="fas fa-phone-alt rotate-img"></i></div>
+                                </div>
+                                <div class="mr-3 mr-md-4">
+                                    <h4>شماره های تماس</h4>
+                                    <p>
+                                        (41) 123 521 458<br>+91 235 548 7548
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+/* پس زمینه تار */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* تار کردن پس زمینه */
+    z-index: 999; /* به جلو آوردن پس زمینه */
+    display: none; /* مخفی بودن به طور پیش‌فرض */
+}
+
+/* کادر مدال */
+.success-message {
+    position: fixed; /* مدال در موقعیت ثابت در صفحه قرار می‌گیرد */
+    top: 25%; /* قرار دادن کادر در وسط صفحه از نظر عمودی */
+    left: 32%; /* قرار دادن کادر در وسط صفحه از نظر افقی */
+    transform: translate(-50%, -50%); /* حرکت کادر به نصف اندازه خودش برای قرار گرفتن دقیقا وسط */
+    background-color: #fff; /* رنگ پس زمینه مدال */
+    padding: 30px;
+    border-radius: 15px; /* گوشه‌های گرد */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* سایه به کادر */
+    z-index: 1000; /* قرار دادن مدال بالای تمام لایه‌ها */
+    display: none; /* مخفی است به طور پیش‌فرض */
+    width: 80%; /* عرض مدال 80% عرض صفحه */
+    max-width: 600px; /* حداکثر عرض مدال */
+    opacity: 0; /* شفافیت اولیه صفر */
+    animation: fadeIn 0.5s forwards; /* انیمیشن برای ظاهر شدن مدال */
+}
+
+.success-message .succ_wrap {
+    padding: 20px;
+}
+
+.success-message .succ_121 {
+    font-size: 50px;
+    color: #28a745;
+}
+
+.success-message h4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.success-message p {
+    font-size: 16px;
+    color: #555;
+}
+
+.success-message .btn {
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.success-message .btn:hover {
+    background-color: #218838;
+}
+
+/* دکمه بستن */
+.success-message .close-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.success-message .close-btn:hover {
+    background-color: #c82333;
+}
+
+/* انیمیشن برای ظاهر شدن مدال */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+
+    <script>
+    window.onload = function() {
+        // بررسی اینکه آیا پیامی برای نمایش وجود دارد
+        if (document.querySelector('.success-message')) {
+            document.querySelector('.success-message').style.display = 'block';  // نمایش مدال
+            document.querySelector('.backdrop').style.display = 'block';  // نمایش پس زمینه تار
+        }
+
+        // بستن مدال
+        const closeButton = document.querySelector('.close-btn');
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                document.querySelector('.success-message').style.display = 'none';
+                document.querySelector('.backdrop').style.display = 'none';
+            });
+        }
+    };
+</script>
+
+
+{% endblock %}

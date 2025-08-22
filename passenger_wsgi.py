@@ -1,0 +1,1 @@
+from Shop_ir.wsgi import application

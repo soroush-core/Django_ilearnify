@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="ed_detail_head bg-cover" style="background:#f4f4f4 url({{ product.image.url }});" data-overlay="8">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-7 col-md-7">
+                    <div class="ed_detail_wrap light">
+                        <div class="crs_cates cl_1"><span>{{ product.category.name }}</span></div>
+                        <div class="ed_header_caption">
+                            <h2 class="ed_title">{{ product.name }}</h2>
+                            <ul>
+                                <li><i class="ti-calendar"></i>{{ product.duration }} ساعت</li>
+                                <li><i class="ti-control-forward"></i>{{ product.video_count }} دوره</li>
+                                <li><i class="ti-user"></i>{{ product.views|default:0 }} شرکت کننده</li>
+                            </ul>
+                        </div>
+                        <div class="ed_header_short">
+                            <p>{{ product.description }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="gray pt-3">
+        <div class="container">
+            <div class="row justify-content-between">
+
+                <div class="col-lg-8 col-md-12 order-lg-first">
+
+                    <!-- All Info Show in Tab -->
+                    <div class="tab_box_info mt-4">
+                        <ul class="nav nav-pills mb-3 light" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="overview-tab" data-toggle="pill" href="#overview"
+                                   role="tab" aria-controls="overview" aria-selected="true"
+                                   aria-expanded="true">معرفی</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="curriculum-tab" data-toggle="pill" href="#curriculum" role="tab"
+                                   aria-controls="curriculum" aria-selected="false" aria-expanded="false">سرفصل</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="instructors-tab" data-toggle="pill" href="#instructors"
+                                   role="tab" aria-controls="instructors" aria-selected="false" aria-expanded="false">مدرس</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="pills-tabContent">
+
+                            <!-- Overview Detail -->
+                            <div class="tab-pane fade active show" id="overview" role="tabpanel"
+                                 aria-labelledby="overview-tab" aria-expanded="true">
+                                <!-- Overview -->
+                                <div class="edu_wraper">
+                                    <h4 class="edu_title">سرفصل و جزئیات آموزش</h4>
+                                    <p>{{ product.description_secondary }}</p>
+                                    <ul class="simple-list p-0">
+                                        {% for feature in features_primary %}
+                                            <li>{{ feature.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                                <!-- Overview -->
+                                <div class="edu_wraper">
+                                    <h4 class="edu_title">جمع‌بندی آخر</h4>
+                                    <ul class="lists-3 row">
+                                        {% for feature in features_additional %}
+                                            <li class="col-xl-4 col-lg-6 col-md-6 m-0">{{ feature.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Curriculum Detail -->
+                            <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab"
+                                 aria-expanded="false">
+                                <div class="edu_wraper">
+                                    <h4 class="edu_title">{{ product.name }}</h4>
+                                    <div id="accordionExample" class="accordion shadow circullum">
+
+                                        {% for content in product.course_contents.all %}
+                                            <div class="card">
+                                                <div id="headingOne" class="card-header bg-white shadow-sm border-0">
+                                                    <h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse"
+                                                                                        data-target="#collapseOne"
+                                                                                        aria-expanded="true"
+                                                                                        aria-controls="collapseOne"
+                                                                                        class="d-block position-relative text-dark collapsible-link py-2">{{ content.title }}</a>
+                                                    </h6>
+                                                </div>
+                                                <div id="collapseOne" aria-labelledby="headingOne"
+                                                     data-parent="#accordionExample" class="collapse show">
+                                                    <div class="card-body pl-3 pr-3">
+                                                        <ul class="lectures_lists">
+                                                            {% for video in content.videos.all %}
+                                                                {% if user.is_authenticated %}
+                                                                    <a href="{{ video.link }}">
+                                                                        <li class="complete">
+                                                                            <div class="lectures_lists_title"><i
+                                                                                    class="fas fa-check dios"></i></div>
+                                                                            {{ video.title }}<span
+                                                                                class="cls_timing"></span></li>
+                                                                    </a>
+                                                                {% else %}
+                                                                    <li class="complete">
+                                                                        <div class="lectures_lists_title"><i
+                                                                                class="fas fa-check dios"></i></div>
+                                                                        {{ video.title }}<span class="cls_timing">برای مشاهده وارد شوید</span>
+                                                                    </li>
+                                                                    </a>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Instructor Detail -->
+                            {% for instructor in instructors %}
+                                <div class="tab-pane fade" id="instructors" role="tabpanel"
+                                     aria-labelledby="instructors-tab" aria-expanded="false">
+                                    <div class="single_instructor">
+                                        <div class="single_instructor_thumb">
+                                            <a href="#"><img src="{{ instructor.image.url }}" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="single_instructor_caption">
+                                            <h4><a href="#">{{ instructor.name }}</a></h4>
+                                            <p>{{ instructor.description }}</p>
+                                            <ul class="social_info">
+                                                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                                <li><a href="#"><i class="ti-twitter"></i></a></li>
+                                                <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                                                <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            <!-- Reviews Detail -->
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab"
+                                 aria-expanded="false">
+
+                                <!-- Overall Reviews -->
+                                <div class="rating-overview">
+                                    <div class="rating-overview-box">
+                                        <span class="rating-overview-box-total">4.2</span>
+                                        <span class="rating-overview-box-percent">از 5.0</span>
+                                        <div class="star-rating" data-rating="5"><i class="ti-star"></i><i
+                                                class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i
+                                                class="ti-star"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="rating-bars">
+                                        <div class="rating-bars-item">
+                                            <span class="rating-bars-name">5 ستاره</span>
+                                            <span class="rating-bars-inner">
+														<span class="rating-bars-rating high" data-rating="4.7">
+															<span class="rating-bars-rating-inner"
+                                                                  style="width: 85%;"></span>
+														</span>
+														<strong>85%</strong>
+													</span>
+                                        </div>
+                                        <div class="rating-bars-item">
+                                            <span class="rating-bars-name">4 ستاره</span>
+                                            <span class="rating-bars-inner">
+														<span class="rating-bars-rating good" data-rating="3.9">
+															<span class="rating-bars-rating-inner"
+                                                                  style="width: 75%;"></span>
+														</span>
+														<strong>75%</strong>
+													</span>
+                                        </div>
+                                        <div class="rating-bars-item">
+                                            <span class="rating-bars-name">3 ستاره</span>
+                                            <span class="rating-bars-inner">
+														<span class="rating-bars-rating mid" data-rating="3.2">
+															<span class="rating-bars-rating-inner"
+                                                                  style="width: 52.2%;"></span>
+														</span>
+														<strong>53%</strong>
+													</span>
+                                        </div>
+                                        <div class="rating-bars-item">
+                                            <span class="rating-bars-name">1 ستاره</span>
+                                            <span class="rating-bars-inner">
+														<span class="rating-bars-rating poor" data-rating="2.0">
+															<span class="rating-bars-rating-inner"
+                                                                  style="width:20%;"></span>
+														</span>
+														<strong>20%</strong>
+													</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4 col-md-12  order-lg-last">
+
+                    <!-- Course info -->
+                    <div class="ed_view_box style_3 ovrlio stick_top">
+
+                        <div class="property_video sm">
+                            <div class="thumb">
+                                <img class="pro_img img-fluid w100" src="{{ product.image.url }}" alt="7.jpg">
+                            </div>
+                        </div>
+
+                        <div class="ed_view_price pl-4">
+
+
+                            {% if product.is_free %}
+                            <h2 class="theme-cl font-2">رایگان</h2>
+                            {% else %}
+                            <h2 class="theme-cl font-2">{{ product.price }} تومان</h2>
+                            {% endif %}
+                        </div>
+
+                        <div class="ed_view_short pl-4 pr-4 pb-2">
+                            <p>این سایت دارای مجوز رسمی از جمهوری اسلامی ایران بوده و به استناد نماد های زیر، خرید از
+                                این وب سایت کاملاً ایمن و تایید شده می باشد!</p>
+                        </div>
+
+                        <div class="ed_view_features half_list pl-4 pr-3">
+                            <span>ویژگی دوره</span>
+                            <ul>
+                                <li><i class="ti-user"></i>{{ product.buyers_count }} شرکت کننده</li>
+                                <li><i class="ti-time"></i>{{ product.duration }} ساعت</li>
+                                <li><i class="ti-bar-chart-alt"></i>سطح {{ product.get_level_display }}</li>
+                                <li><i class="ti-cup"></i>ارائه مدرک</li>
+                            </ul>
+                        </div>
+                        <div class="ed_view_link">
+
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'enroll_in_course' product.id %}" class="btn theme-bg enroll-btn">ثبت
+                                    نام<i class="ti-angle-left"></i></a>
+                            {% else %}
+                                <a href="{% url 'enroll_in_course' product.id %}" class="btn theme-bg enroll-btn">ورود به حساب<i class="ti-angle-left"></i></a>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

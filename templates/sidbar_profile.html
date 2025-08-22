@@ -1,0 +1,42 @@
+{% load static %}
+
+<div class="col-lg-3 col-md-3">
+							<div class="dashboard-navbar">
+
+								<div class="d-user-avater">
+                                    {% if user.profile_image %}
+									<img src="{{ user.profile_image.url }}" class="img-fluid avater" alt="">
+                                    {% else %}
+                                    <img src="{% static 'img/user-3.jpg' %}" class="img-fluid avater" alt="">
+                                    {% endif %}
+									<h4>{{ user.first_name }} {{ user.last_name }}</h4>
+									<span>{{ user.email }}</span>
+									<div class="elso_syu89">
+										<ul>
+											<li><a href="#"><i class="ti-facebook"></i></a></li>
+											<li><a href="#"><i class="ti-twitter"></i></a></li>
+											<li><a href="#"><i class="ti-instagram"></i></a></li>
+											<li><a href="#"><i class="ti-linkedin"></i></a></li>
+										</ul>
+									</div>
+									<div class="elso_syu77">
+										<div class="one_third"><div class="one_45ic text-warning bg-light-warning"><i class="fas fa-star"></i></div><span>امتیازات</span></div>
+										<div class="one_third"><div class="one_45ic text-success bg-light-success"><i class="fas fa-file-invoice"></i></div><span>دوره ها</span></div>
+										<div class="one_third"><div class="one_45ic text-purple bg-light-purple"><i class="fas fa-user"></i></div><span>هنرجویان</span></div>
+									</div>
+								</div>
+
+								<div class="d-navigation">
+									<ul id="side-menu">
+                                        <li class="active"><a href="{% url 'profile' %}"><i class="fas fa-th"></i>پیشخوان</a></li>
+										<li class="dropdown">
+											<a href="{% url 'product_list' %}"><i class="fas fa-shopping-basket"></i>دوره های آموزش<span class="ti-angle"></span></a>
+										</li>
+                                        <li><a href="{% url 'contact_us' %}"><i class="fas fa-comments"></i>پشتیبانی</a></li>
+										<li><a href="{% url 'logout' %}"><i class="fas fa-address-card"></i>خروج از حساب کاربری</a></li>
+
+									</ul>
+								</div>
+
+							</div>
+						</div>

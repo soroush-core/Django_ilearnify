@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Themezhub"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillUp - قالب HTML دوره آنلاین و آموزش</title>
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+</head>
+
+<body dir="rtl">
+<div id="main-wrapper">
+
+
+    {% include 'header.html' %}
+    <!-- End Navigation -->
+    <div class="clearfix"></div>
+    <!-- ============================ Hero Banner  Start================================== -->
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- ============================ Footer Start ================================== -->
+    {% include 'footer.html' %}
+    <!-- ============================ Footer End ================================== -->
+
+    <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+
+
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/slick.js' %}"></script>
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'js/daterangepicker.js' %}"></script>
+<script src="{% static 'js/summernote.min.js' %}"></script>
+<script src="{% static 'js/metisMenu.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<!-- ============================================================== -->
+<!-- This page plugins -->
+<!-- ============================================================== -->
+
+</body>
+
+</html>

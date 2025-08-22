@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="page-title gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+
+                    <div class="breadcrumbs-wrap">
+                        <h1 class="breadcrumb-title font-2">دسته بندی ها</h1>
+                        <nav class="transparent">
+                            <ol class="breadcrumb p-0">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">خانه</a></li>
+                                <li class="breadcrumb-item active theme-cl" aria-current="page">دسته بندی ها</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+
+                {% for category in categories %}
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                        <div class="cates_crs_wrip">
+                            <a href="{% url 'category_detail' category.id %}">
+                                <img src="{{ category.icon.url }}" alt="{{ category.name }}" class="category-icon">
+                                <div class="crs_capt_cat">
+                                    <br>
+                                    <h4>{{ category.name }}</h4>
+                                    <p>{{ category.description|slice:":54" }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <style>
+        /* style.css یا هر فایلی که استایل‌های شما در آن قرار دارد */
+        .category-icon {
+            max-width: 50px; /* حداکثر عرض ایکون */
+            max-height: 50px; /* حداکثر ارتفاع ایکون */
+            width: auto; /* عرض ایکون به نسبت ابعادش تنظیم شود */
+            height: auto; /* ارتفاع ایکون به نسبت ابعادش تنظیم شود */
+            border-radius: 50%; /* گرد کردن گوشه‌ها */
+            object-fit: cover; /* اطمینان از اینکه تصویر با نسبت ابعاد مناسب قرار گیرد */
+        }
+
+        /* اضافه کردن سایه به کادر دسته‌بندی‌ها */
+        .cates_crs_wrip {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* سایه کمرنگ */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* انیمیشن برای تغییر سایه و بزرگ شدن */
+        }
+
+        /* تغییر سایه و اندازه کادر هنگام هاور */
+        .cates_crs_wrip:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* سایه تیره‌تر */
+            transform: scale(1.05); /* بزرگتر شدن کمی */
+        }
+
+        /* افزودن انیمیشن برای تغییر اندازه ایکون هنگام هاور */
+        .cates_crs_wrip:hover .category-icon {
+            transform: scale(1.1); /* بزرگتر شدن ایکون */
+        }
+
+        /* افکت هاور روی نوشته‌ها */
+        .cates_crs_wrip:hover .crs_capt_cat h4,
+        .cates_crs_wrip:hover .crs_capt_cat p {
+            color: #FFFFFF; /* تغییر رنگ نوشته‌ها هنگام هاور */
+        }
+
+    </style>
+
+
+{% endblock %}

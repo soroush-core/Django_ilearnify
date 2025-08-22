@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+    <section class="gray" data-select2-id="8">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                    <form method="GET" action="">
+                        <div class="page-sidebar p-0" data-select2-id="7">
+                            <a class="filter_links" data-toggle="collapse" href="#fltbox" role="button"
+                               aria-expanded="false" aria-controls="fltbox">فیلتر پیشرفته<i
+                                    class="fa fa-sliders-h mr-2"></i></a>
+                            <div class="collapse" id="fltbox" data-select2-id="fltbox">
+                                <!-- Find New Property -->
+                                <div class="sidebar-widgets p-4" data-select2-id="6">
+
+                                    <div class="form-group">
+                                        <div class="input-with-icon">
+                                            <input class="form-control" type="text" name="search" placeholder="جستجو"
+                                                   value="{{ request.GET.search }}">
+                                            <i class="ti-search"></i>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <h6>سطح مهارت</h6>
+                                        <ul class="no-ul-list mb-3">
+                                            <li>
+                                                <input id="l1" class="checkbox-custom" type="checkbox" name="level"
+                                                       value="beginner"
+                                                       {% if request.GET.level == 'beginner' %}checked{% endif %}>
+                                                <label for="l1" class="checkbox-custom-label">ابتدایی</label>
+                                            </li>
+                                            <li>
+                                                <input id="l2" class="checkbox-custom" type="checkbox" name="level"
+                                                       value="intermediate"
+                                                       {% if request.GET.level == 'intermediate' %}checked{% endif %}>
+                                                <label for="l2" class="checkbox-custom-label">سطح پایه</label>
+                                            </li>
+                                            <li>
+                                                <input id="l3" class="checkbox-custom" type="checkbox" name="level"
+                                                       value="advanced"
+                                                       {% if request.GET.level == 'advanced' %}checked{% endif %}>
+                                                <label for="l3" class="checkbox-custom-label">سطح پیشرفته</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h6>قیمت</h6>
+                                        <ul class="no-ul-list mb-3">
+                                            <li>
+                                                <input id="p1" class="checkbox-custom" name="p1" type="checkbox">
+                                                <label for="p1" class="checkbox-custom-label">همه</label>
+                                            </li>
+                                            <li>
+                                                <input id="p2" class="checkbox-custom" type="checkbox" name="price"
+                                                       value="free"
+                                                       {% if request.GET.price == 'free' %}checked{% endif %}>
+                                                <label for="p2" class="checkbox-custom-label">رایگان</label>
+                                            </li>
+                                            <li>
+                                                <input id="p3" class="checkbox-custom" type="checkbox" name="price"
+                                                       value="paid"
+                                                       {% if request.GET.price == 'paid' %}checked{% endif %}>
+                                                <label for="p3" class="checkbox-custom-label">پولی</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 pt-4">
+                                            <button type="submit" class="btn theme-bg rounded full-width">فیلتر</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Sidebar End -->
+
+                </div>
+
+                <!-- Content -->
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="short_wraping">
+                                <div class="row m-0 align-items-center justify-content-between">
+
+                                    <div class="col-lg-4 col-md-5 col-sm-12  col-sm-6">
+                                        <div class="shorting_pagination_laft">
+                                            <h6 class="m-0"> محصولات </h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-8 col-md-7 col-sm-12 col-sm-6">
+                                        <div class="dlks_152">
+                                            <div class="shorting-right ml-2">
+                                                <label>مرتب سازی براساس :</label>
+                                                <div class="dropdown show">
+                                                    <a class="btn btn-filter dropdown-toggle" href="#"
+                                                       data-toggle="dropdown" aria-haspopup="true"
+                                                       aria-expanded="false">
+                                                        <span class="selection">امتیاز بالا</span>
+                                                    </a>
+                                                    <div class="drp-select dropdown-menu">
+
+                                                        <a class="dropdown-item" href="?sort=newest">محصولات جدید
+                                                            بالا</a>
+                                                        <a class="dropdown-item" href="?sort=most_viewed">پر بازدید ترین محصولات</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <!-- Single Grid -->
+                        {% for product in products %}
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="crs_grid shadow_none brd">
+                                    <div class="crs_grid_thumb">
+                                        <a href="{% url 'product_detail' product.id %}" class="crs_detail_link">
+                                            <img src="{{ product.image.url }}" class="img-fluid rounded" alt="">
+                                        </a>
+                                        <div class="crs_video_ico">
+                                            <i class="fa fa-play"></i>
+                                        </div>
+                                        <div class="crs_locked_ico">
+                                            <i class="fa fa-lock"></i>
+                                        </div>
+                                    </div>
+                                    <div class="crs_grid_caption">
+                                        <div class="crs_flex">
+                                            <div class="crs_fl_first">
+                                                <div class="crs_cates cl_1"><span>{{ product.category.name }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="crs_fl_last">
+                                                <div class="crs_inrolled"><strong>{{ product.buyers_count }}</strong>شرکت
+                                                    کننده
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="crs_title"><h4><a href="{% url 'product_detail' product.id %}"
+                                                                      class="crs_title_link">{{ product.name }}</a></h4>
+                                        </div>
+                                        <div class="crs_info_detail">
+                                            <ul>
+                                                <li><i class="fa fa-clock text-danger"></i><span>{{ product.duration }} ساعت</span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-video text-success"></i><span>{{ product.video_count }} ویدیو </span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-signal text-warning"></i><span>{{ product.get_level_display }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="crs_grid_foot">
+                                        <div class="crs_flex">
+                                            <div class="crs_fl_first">
+                                                {% if product.last_instructor %}
+                                                    <div class="crs_tutor">
+                                                        <div class="crs_tutor_thumb"><a
+                                                                href="instructor-detail.html"><img
+                                                                src="{{ product.last_instructor.image.url }}"
+                                                                class="img-fluid circle" alt=""></a></div>
+                                                        <div class="crs_tutor_name"><a
+                                                                href="instructor-detail.html">{{ product.last_instructor.name }}</a>
+                                                        </div>
+                                                    </div>
+                                                {% else %}
+                                                    <p>مدرس برای این محصول موجود نیست.</p>
+                                                {% endif %}
+                                            </div>
+                                            <div class="crs_fl_last">
+                                                {% if product.is_free %}
+                                                <div class="crs_price"><h2><span class="theme-cl">رایگان</span><span
+                                                        class="currency"></span></h2></div>
+                                                {% else %}
+                                                <div class="crs_price"><h2><span class="theme-cl">{{ product.price }}</span><span
+                                                        class="currency">تومان</span></h2></div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+                    <!-- Pagination -->
+                            <div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<ul class="pagination p-center">
+                                        {% if page_obj.has_previous %}
+										<li class="page-item">
+										  <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+											<span class="ti-arrow-right"></span>
+											<span class="sr-only">قبل</span>
+										  </a>
+										</li>
+                                        {% endif %}
+										<li class="page-item active"><a class="page-link" href="">{{ page_obj.number }}</a></li>
+                                     {% if page_obj.has_next %}
+										<li class="page-item">
+										  <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+											<span class="ti-arrow-left"></span>
+											<span class="sr-only">بعد</span>
+										  </a>
+										</li>
+                                     {% endif %}
+									</ul>
+								</div>
+							</div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+{% endblock %}

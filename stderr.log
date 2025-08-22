@@ -1,0 +1,145 @@
+Not Found: /static/css/styles.css
+Not Found: /static/img/logo.png
+Not Found: /static/js/jquery.min.js
+Not Found: /static/js/popper.min.js
+Not Found: /static/img/side-2.png
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/select2.min.js
+Not Found: /static/js/slick.js
+Not Found: /static/js/daterangepicker.js
+Not Found: /static/js/moment.min.js
+Not Found: /static/js/custom.js
+Not Found: /static/js/summernote.min.js
+Not Found: /static/js/metisMenu.min.js
+Not Found: /static/img/side-1.jpg
+Not Found: /static/img/logo-light.png
+Not Found: /static/img/side-2.jpg
+Not Found: /static/css/styles.css
+Not Found: /static/img/side-2.png
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/slick.js
+Not Found: /static/img/logo.png
+Not Found: /static/js/select2.min.js
+Not Found: /static/js/daterangepicker.js
+Not Found: /static/js/popper.min.js
+Not Found: /static/js/moment.min.js
+Not Found: /static/js/jquery.min.js
+Not Found: /static/js/summernote.min.js
+Not Found: /static/js/custom.js
+Not Found: /static/img/side-1.jpg
+Not Found: /static/js/metisMenu.min.js
+Not Found: /static/img/logo-light.png
+Not Found: /static/img/side-2.jpg
+Not Found: /static/css/styles.css
+Not Found: /static/img/logo.png
+Not Found: /static/js/jquery.min.js
+Not Found: /static/img/side-2.png
+Not Found: /static/js/popper.min.js
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/select2.min.js
+Not Found: /static/js/slick.js
+Not Found: /static/js/moment.min.js
+Not Found: /static/js/daterangepicker.js
+Not Found: /static/js/metisMenu.min.js
+Not Found: /static/js/summernote.min.js
+Not Found: /static/js/custom.js
+Not Found: /static/img/side-1.jpg
+Not Found: /static/img/logo-light.png
+Not Found: /static/img/side-2.jpg
+Not Found: /static/css/styles.css
+Not Found: /static/img/logo.png
+Not Found: /static/img/side-2.png
+Not Found: /static/js/jquery.min.js
+Not Found: /static/js/select2.min.js
+Not Found: /static/js/popper.min.js
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/slick.js
+Not Found: /static/js/daterangepicker.js
+Not Found: /static/js/moment.min.js
+Not Found: /static/js/summernote.min.js
+Not Found: /static/js/custom.js
+Not Found: /static/js/metisMenu.min.js
+Not Found: /static/img/logo-light.png
+Not Found: /static/img/side-1.jpg
+Not Found: /static/img/side-2.jpg
+Not Found: /static/css/styles.css
+Not Found: /static/img/logo.png
+Not Found: /static/js/popper.min.js
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/jquery.min.js
+Not Found: /static/js/select2.min.js
+Not Found: /static/img/side-2.png
+Not Found: /static/js/metisMenu.min.js
+Not Found: /static/js/moment.min.js
+Not Found: /static/js/daterangepicker.js
+Not Found: /static/js/summernote.min.js
+Not Found: /static/js/slick.js
+Not Found: /static/js/custom.js
+Not Found: /static/img/side-1.jpg
+Not Found: /static/img/logo-light.png
+Not Found: /static/img/side-2.jpg
+Not Found: /static/css/styles.css
+Not Found: /static/img/logo.png
+Not Found: /static/js/slick.js
+Not Found: /static/js/popper.min.js
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/select2.min.js
+Not Found: /static/js/jquery.min.js
+Not Found: /static/img/side-2.png
+Not Found: /static/js/daterangepicker.js
+Not Found: /static/js/moment.min.js
+Not Found: /static/js/metisMenu.min.js
+Not Found: /static/js/custom.js
+Not Found: /static/js/summernote.min.js
+Not Found: /static/img/side-1.jpg
+Not Found: /static/img/side-2.jpg
+Not Found: /static/img/logo-light.png
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dark_mode.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/theme.js
+Not Found: /static/admin/js/nav_sidebar.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/dashboard.css
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+Not Found: /favicon.ico
+Not Found: /Products/products/20/
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+/home/ilearnif/ilearnify/Products/views.py:45: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'Products.models.Product'> QuerySet.
+  paginator = Paginator(product_list, 6)  # 6 \u0645\u062d\u0635\u0648\u0644 \u062f\u0631 \u0647\u0631 \u0635\u0641\u062d\u0647
+[UID:1895][897347] Child process with pid: 907044 was killed by signal: 15, core dumped: no

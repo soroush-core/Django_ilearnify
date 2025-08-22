@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="gray">
+
+				<div class="container">
+
+					<!-- row Start -->
+					<div class="row">
+
+						<!-- Blog Detail -->
+						<div class="col-lg-8 col-md-12 col-sm-12 col-12">
+							<div class="article_detail_wrapss single_article_wrap format-standard">
+								<div class="article_body_wrap">
+
+									<div class="article_featured_image">
+										<img class="img-fluid" src="{{ blog.image.url }}" alt="">
+									</div>
+
+									<div class="article_top_info">
+										<ul class="article_middle_info">
+                                            {% for author in blog.authors.all %}
+											<li><a href="#"><span class="icons"><i class="ti-user"></i></span>نویسنده {{ author.name }}</a></li>
+                                            {% endfor %}
+										</ul>
+									</div>
+									<h3 class="post-title">{{ blog.title }}</h3>
+									<p>{{ blog.description }}</p>
+								</div>
+							</div>
+
+							<!-- Author Detail -->
+							<div class="article_detail_wrapss single_article_wrap format-standard">
+                                {% for author in blog.authors.all %}
+								<div class="article_posts_thumb">
+									<span class="img"><img class="img-fluid" src="{{ author.image.url }}" alt="{{ author.name }}"></span>
+									<h3 class="pa-name">{{ author.name }}</h3>
+									<p class="pa-text">{{ author.bio }}</p>
+								</div>
+                                {% endfor %}
+
+							</div>
+
+							<!-- Blog Comment -->
+
+
+
+						</div>
+
+						<!-- Single blog Grid -->
+						<div class="col-lg-4 col-md-12 col-sm-12 col-12">
+
+							<!-- Searchbard -->
+							<div class="single_widgets widget_search">
+								<h4 class="title">جستجو</h4>
+								<form method="get" action="{% url 'search_blogs' %}" class="sidebar-search-form">
+									<input type="search" name="q" value="{{ query }}" name="" placeholder="عنوان مورد نظر...">
+									<button type="submit"><i class="ti-search"></i></button>
+								</form>
+							</div>
+
+							<!-- Categories -->
+							<div class="single_widgets widget_category">
+								<h4 class="title">دسته بندی</h4>
+								<ul>
+                                    {% for category in categories %}
+									<li><a href="{% url 'category_blogs' category.id %}">{{ category.name }}<span></span></a></li>
+                                    {% endfor %}
+								</ul>
+							</div>
+
+							<!-- Trending Posts -->
+							<div class="single_widgets widget_thumb_post">
+								<h4 class="title">جدیدترین وبلاگ</h4>
+                                <br>
+								<ul>
+                                    {% for latest_blog in latest_blogs %}
+									<li>
+
+										<span class="left">
+                                            <a href="{% url 'blog_detail' latest_blog.id %}">
+											<img src="{{ latest_blog.image.url }}" alt="{{ latest_blog.title }}" class="">
+                                                </a>
+										</span>
+										<span class="right">
+											<a class="feed-title" href="{% url 'blog_detail' latest_blog.id %}"> {{ latest_blog.title|truncatewords:5 }} <br> </a>
+											<span class="post-date"><i class="ti-calendar"></i>  {{ latest_blog.created_at|date:"Y/m/d" }}  </span>
+										</span>
+
+									</li>
+                                     {% endfor %}
+								</ul>
+							</div>
+
+							<!-- Tags Cloud -->
+							<div class="single_widgets widget_tags">
+								<h4 class="title">برچسب</h4>
+								<ul>
+                                    {% for tag in blog.tags.all %}
+									<li><a href="">{{ tag.name }}</a></li>
+                                    {% endfor %}
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+					<!-- /row -->
+
+				</div>
+
+			</section>
+
+
+
+
+
+{% endblock %}

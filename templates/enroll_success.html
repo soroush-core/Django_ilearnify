@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="error-wrap">
+				<div class="container">
+					<div class="row justify-content-center">
+
+						<div class="col-lg-6 col-md-10">
+						  <div class="text-center succ_wrap">
+							<div class="succ_121 mb-3">
+							  <i class="fas fa-thumbs-up"></i>
+							</div>
+							<div>
+							  <h4 class="font-2">ثبت نام شما با موفقیت انجام شد.</h4>
+							  <p>خیلی از اعتماد شما متشکریم و امیدواریم از دوره مورد نظر لذت ببرید </p>
+							</div>
+							<div>
+							  <a href="{% url 'product_detail' product.id %}" class="btn theme-bg text-white">بازگشت به دوره آموزشی</a>
+							</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</section>
+    <br>
+    <br>
+
+{% endblock %}
